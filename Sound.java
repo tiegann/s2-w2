@@ -109,7 +109,10 @@ public class Sound {
             int n = new Integer(myData.get(i*2));
             s.set(i,  n);
         }
-        myData = s;
+        myData.clear();
+        myData.addAll(s);
+        // for(Integer i: s)
+        //     myData.add(i);
         refresh();
     }
   
