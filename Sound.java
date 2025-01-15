@@ -106,7 +106,7 @@ public class Sound {
     public void doublePitch() {
         ArrayList<Integer> s = new ArrayList<Integer>((myData.size()/2));
         for (int i=0; i < s.size() ; i++) {
-            int n = new Integer(myData.get(i*2));
+            int n = myData.get(i*2);
             s.set(i,  n);
         }
         myData.clear();
