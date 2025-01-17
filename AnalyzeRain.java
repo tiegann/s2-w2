@@ -8,6 +8,13 @@ public class AnalyzeRain {
         for(int d = 1; d <= 365; d++){
             year.add(new Day(d, (int)(Math.random()*2) == 1));
         }
+        //BE SURE TO RUN TESTS THAT PROVE YOUR ALGORITHM Works
+        //you might try setting up year with predictable number of rainy days
+        //instead of using the loop above
+        //year.add(new Day(d, true);
+        //year.add(new Day(d, true);
+        //year.add(new Day(d, true);
+        //year.add(new Day(d, false);
         System.out.println(this.numRunsOf(2));
         System.out.println(this.findLastDayOfRain());
         System.out.println(this.firstTimeTwoOrMoreDaysRainInARow());
@@ -45,8 +52,10 @@ public class AnalyzeRain {
 
     //TASK #5
     //this method intends to count the number of times it
-    //rains daysInRow times
-    //it is almost right. Fix it.
+    //rains daysInRow time; it is almost right. Fix it -- there are two errors
+    //Here are examples of what this task and #6 should return:
+    // 6 days of rain in a row with and you want to know how many three-day runs there are: 
+    //   -- rain, rain, rain, rain, rain, rain --> numRunsOfNeighbors(3) --> should return four(4)
     public int numRunsOfNeighbors(int daysInRow){
         int count = 0;
         int countDaysInRow = 1;
