@@ -110,15 +110,27 @@ public class Sound {
             s.set(i,  n);
         }
         myData.clear();
-        myData.addAll(s);
-        // for(Integer i: s)
-        //     myData.add(i);
+            myData.add(i);
         refresh();
     }
   
     //complete this method
     public void amplify (double amt) {
+        for (int i = 0; i<myData.size(); i++){
+            myData.set(i, (int)(myData.get(i)* amt));
+        }
+        refresh();
+    }
 
+    public void normalize(){
+        int a = Math.abs(myData.get(0));
+        for(int i = 0; i<myData.size(); i++){
+            if(Math.abs(myData.get(i)) > Math.abs(a)){
+                a = Math.abs(myData.get(i));
+            }
+        }
+        double amt = 32250/(a *1.0);
+        amplify(amt);
     }
     
     
@@ -126,6 +138,20 @@ public class Sound {
         for(int i =0; i < 32768; i++) {
             myData.set(i, i);
         }
+    }
+
+    public void swap(int index1, int index2){
+        Integer i = myData.get(index1);
+        Integer i2 = myData.get(index2);
+        myData.set(index2, i);
+        myData.set(index1, i2);
+    }
+
+    public void reverse(){
+        for(int i = 0; i< myData.size()/2; i++){
+        swap(i, myData.size()-i-1);
+        }
+        refresh();
     }
     
     public void setToSingleTone(int hertz) {

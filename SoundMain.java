@@ -1,6 +1,7 @@
 public class SoundMain{
 
     public static void main(String[] args){
-        new Sound();
+        Sound s = new Sound();
+        s.reverse();
     }
 }
